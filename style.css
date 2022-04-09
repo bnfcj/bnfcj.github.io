@@ -62,7 +62,7 @@ button,
   border-right: 1px solid #333;
 }
 
-button {
+.controls button {
   position: relative;
   border: 0;
   flex: 1;
