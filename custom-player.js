@@ -134,8 +134,8 @@ function updateAvailabilityText() {
 }
 
 function updateState() {
-  if (videoElem.paused) play.innerHTML = "Play";
-  else play.innerHTML = "Pause";
+  // if (videoElem.paused) play.innerHTML = "Play";
+  // else play.innerHTML = "Pause";
 
   if (!videoElem.remote) return;
 
@@ -165,25 +165,25 @@ play.onclick = function () {
   }
 };
 
-function setupAvailabilityWatch() {
-  videoElem.remote.watchAvailability(handleAvailabilityChange).then(
-    function (id) {
-      callbackId = id;
-    },
-    function () {
-      handleAvailabilityChange(true);
-    }
-  );
-}
+// function setupAvailabilityWatch() {
+//   videoElem.remote.watchAvailability(handleAvailabilityChange).then(
+//     function (id) {
+//       callbackId = id;
+//     },
+//     function () {
+//       handleAvailabilityChange(true);
+//     }
+//   );
+// }
 
-play.onclick = function () {
-  if (videoElem.paused) {
-    videoElem.play();
-  } else {
-    videoElem.pause();
-    play.innerHTML = "Play";
-  }
-};
+// play.onclick = function () {
+//   if (videoElem.paused) {
+//     videoElem.play();
+//   } else {
+//     videoElem.pause();
+//     play.innerHTML = "Play";
+//   }
+// };
 
 connect.onclick = function () {
   videoElem.remote.prompt().then(function () {
@@ -191,28 +191,28 @@ connect.onclick = function () {
   });
 };
 
-attributeBtn.onclick = function () {
-  if (videoElem.disableRemotePlayback) {
-    videoElem.disableRemotePlayback = null;
-    attributeBtn.innerHTML = "Disable remote playback";
-  } else {
-    videoElem.disableRemotePlayback = true;
-    attributeBtn.innerHTML = "Enable remote playback";
-  }
-};
+// attributeBtn.onclick = function () {
+//   if (videoElem.disableRemotePlayback) {
+//     videoElem.disableRemotePlayback = null;
+//     attributeBtn.innerHTML = "Disable remote playback";
+//   } else {
+//     videoElem.disableRemotePlayback = true;
+//     attributeBtn.innerHTML = "Enable remote playback";
+//   }
+// };
 
-if (videoElem.remote) {
-  setupAvailabilityWatch();
-  videoElem.remote.onconnect = updateState;
-  videoElem.remote.onconnecting = updateState;
-  videoElem.remote.ondisconnect = updateState;
-} else {
-  promptBtn.style.display = "none";
-  availabilityText.innerHTML =
-    "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
-  remotePlaybackText.style.display = "none";
-  attributeBtn.style.display = "none";
-}
+// if (videoElem.remote) {
+//   setupAvailabilityWatch();
+//   videoElem.remote.onconnect = updateState;
+//   videoElem.remote.onconnecting = updateState;
+//   videoElem.remote.ondisconnect = updateState;
+// } else {
+//   promptBtn.style.display = "none";
+//   availabilityText.innerHTML =
+//     "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
+//   remotePlaybackText.style.display = "none";
+//   attributeBtn.style.display = "none";
+// }
 
 videoElem.onplay = updateState;
 updateState();
