@@ -124,9 +124,10 @@ const updateState = function () {
     media.remote.watchAvailability(canPlay);
   });
 };
-updateState();
 function canPlay(isTrue) {
+  alert(isTrue);
   if (isTrue) {
+    console.log(isTrue);
     media.remote.prompt();
     if (media.state === "connected") {
       video.style.display = "block";
@@ -135,3 +136,4 @@ function canPlay(isTrue) {
     }
   }
 }
+updateState();
