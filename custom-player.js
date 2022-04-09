@@ -201,18 +201,18 @@ connect.onclick = function () {
 //   }
 // };
 
-// if (videoElem.remote) {
-//   setupAvailabilityWatch();
-//   videoElem.remote.onconnect = updateState;
-//   videoElem.remote.onconnecting = updateState;
-//   videoElem.remote.ondisconnect = updateState;
-// } else {
-//   promptBtn.style.display = "none";
-//   availabilityText.innerHTML =
-//     "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
-//   remotePlaybackText.style.display = "none";
-//   attributeBtn.style.display = "none";
-// }
+if (videoElem.remote) {
+  setupAvailabilityWatch();
+  videoElem.remote.onconnect = updateState;
+  videoElem.remote.onconnecting = updateState;
+  videoElem.remote.ondisconnect = updateState;
+} else {
+  promptBtn.style.display = "none";
+  availabilityText.innerHTML =
+    "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
+  remotePlaybackText.style.display = "none";
+  attributeBtn.style.display = "none";
+}
 
 videoElem.onplay = updateState;
 updateState();
