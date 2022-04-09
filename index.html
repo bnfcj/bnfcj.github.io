@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="player">
-      <video controls>
+      <video id="videoElement" controls>
         <source src="video/sintel-short.mp4" type="video/mp4" />
         <source src="video/sintel-short.mp4" type="video/webm" />
         <!-- fallback content here -->
@@ -40,6 +40,10 @@
       title="wifi icons"
       >Wifi icons created by Google - Flaticon</a
     >
-    <script src="custom-player.js"></script>
+    <button id="promptBtn">Prompt</button>
+    <button id="toggleDisableRemotePlaybackBtn">Disable remote playback</button>
+    <div id="availabilityText"></div>
+    <div id="remotePlaybackText" style="display: none"></div>
+    <script defer src="custom-player.js"></script>
   </body>
 </html>
