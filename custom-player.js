@@ -125,15 +125,16 @@ const updateState = function () {
   });
 };
 function canPlay(isTrue) {
-  alert(isTrue);
   if (isTrue) {
     console.log(isTrue);
-    media.remote.prompt();
-    if (media.state === "connected") {
-      video.style.display = "block";
-    } else if (media.remote === "disconnected") {
-      video.style.display = "none";
-    }
+    media.remote.prompt().then(() => {
+      if (media.state === "connected") {
+        video.style.display = "block";
+      } else if (media.remote === "disconnected") {
+        video.style.display = "none";
+      }
+    });
   }
 }
 updateState();
+
