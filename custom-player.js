@@ -122,6 +122,7 @@ const updateState = function () {
   }
   connect.addEventListener("click", () => {
     media.remote.watchAvailability();
+    alert('yo')
     media.remote.prompt().then(() => {
       if (media.state === "connected") {
         video.style.display = "block";
