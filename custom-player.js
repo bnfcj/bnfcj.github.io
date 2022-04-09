@@ -121,10 +121,10 @@ var deviceAvailability = false;
 var attributeBtn = document.getElementById("toggleDisableRemotePlaybackBtn");
 var callbackId = -1;
 
-// function handleAvailabilityChange(availability) {
-//   deviceAvailability = availability;
-//   updateAvailabilityText();
-// }
+function handleAvailabilityChange(availability) {
+  deviceAvailability = availability;
+  // updateAvailabilityText();
+}
 
 // function updateAvailabilityText() {
 //   availabilityText.innerHTML = deviceAvailability
