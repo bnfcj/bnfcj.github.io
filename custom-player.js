@@ -163,17 +163,17 @@ function updateState() {
 //   }
 // };
 
-// function setupAvailabilityWatch() {
-//   videoElem.remote.watchAvailability(handleAvailabilityChange).then(
-//     function (id) {
-//       callbackId = id;
-//     },
+function setupAvailabilityWatch() {
+  videoElem.remote
+    .watchAvailability(handleAvailabilityChange)
+    .then(function (id) {
+      callbackId = id;
+    });
+}
+// ,
 //     function () {
 //       handleAvailabilityChange(true);
 //     }
-//   );
-// }
-
 // play.onclick = function () {
 //   if (videoElem.paused) {
 //     videoElem.play();
@@ -199,18 +199,18 @@ connect.onclick = function () {
 //   }
 // };
 
-// if (videoElem.remote) {
-//   setupAvailabilityWatch();
-//   videoElem.remote.onconnect = updateState;
-//   videoElem.remote.onconnecting = updateState;
-//   videoElem.remote.ondisconnect = updateState;
-// } else {
-//   promptBtn.style.display = "none";
-//   availabilityText.innerHTML =
-//     "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
-//   remotePlaybackText.style.display = "none";
-//   attributeBtn.style.display = "none";
-// }
+if (videoElem.remote) {
+  setupAvailabilityWatch();
+  videoElem.remote.onconnect = updateState;
+  videoElem.remote.onconnecting = updateState;
+  videoElem.remote.ondisconnect = updateState;
+} else {
+  // promptBtn.style.display = "none";
+  // availabilityText.innerHTML =
+  //   "RemotePlayback API is not supported. Have you enabled experimental web platform featues?";
+  // remotePlaybackText.style.display = "none";
+  // attributeBtn.style.display = "none";
+}
 
 videoElem.onplay = updateState;
 updateState();
