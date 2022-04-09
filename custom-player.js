@@ -156,14 +156,14 @@ function updateState() {
   }
 }
 
-play.onclick = function () {
-  if (videoElem.paused) {
-    videoElem.play();
-  } else {
-    videoElem.pause();
-    play.innerHTML = "Play";
-  }
-};
+// play.onclick = function () {
+//   if (videoElem.paused) {
+//     videoElem.play();
+//   } else {
+//     videoElem.pause();
+//     play.innerHTML = "Play";
+//   }
+// };
 
 // function setupAvailabilityWatch() {
 //   videoElem.remote.watchAvailability(handleAvailabilityChange).then(
