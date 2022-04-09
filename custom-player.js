@@ -185,7 +185,7 @@ play.onclick = function () {
   }
 };
 
-promptBtn.onclick = function () {
+connect.onclick = function () {
   videoElem.remote.prompt().then(function () {
     console.log("prompt() succeeded");
   });
